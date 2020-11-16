@@ -10,7 +10,6 @@ class Coffee_machine:
             self.cups = 9
             self.money = 550
 
-
       def remaining(self):
             print(f'\nThe coffee machine has:'
                   f'\n{self.water} of water'
@@ -23,7 +22,6 @@ class Coffee_machine:
             else:
                   print(f'{self.money} of money')
           
-
       def buy(self):
             coffee_choice = None
             while coffee_choice not in ('1', '2', '3', 'back'):
@@ -33,7 +31,6 @@ class Coffee_machine:
                   else:
                         coffee = self.coffee_menu[int(coffee_choice) - 1]
                         self.check_status(coffee)
-
 
       def check_status(self, coffee):
             water = self.water - Coffee_machine.COFFEE_REСIPE[coffee][0]
@@ -52,14 +49,12 @@ class Coffee_machine:
                   print('\nI have enough resources, making you a coffee!')
                   self.make_coffee(coffee)
 
-
       def make_coffee(self, coffee):            
             self.water -= Coffee_machine.COFFEE_REСIPE[coffee][0]
             self.milk -= Coffee_machine.COFFEE_REСIPE[coffee][1]
             self.coffee_beans -= Coffee_machine.COFFEE_REСIPE[coffee][2]
             self.cups -= Coffee_machine.COFFEE_REСIPE[coffee][3]
             self.money += Coffee_machine.COFFEE_REСIPE[coffee][4]
-
 
       def fill(self):      
             add_water = int(input('\nWrite how many ml of water do you want to add:\n> '))
@@ -71,10 +66,10 @@ class Coffee_machine:
             add_cups = int(input('Write how many disposable cups of coffee do you want to add:\n> '))
             self.cups += add_cups
 
-
       def take(self):
             print(f'\nI gave you ${self.money}')
             self.money = 0
+
 
 def main():
       delonghy = Coffee_machine()
@@ -91,4 +86,5 @@ def main():
                   delonghy.remaining()
 
 
-main()
+if __main__ == '__main__':
+    main()
